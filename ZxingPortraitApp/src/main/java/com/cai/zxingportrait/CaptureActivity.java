@@ -42,7 +42,8 @@ public class CaptureActivity extends Activity {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.add(new CaptureFragment(), "");
+        fragmentTransaction.replace(android.R.id.content, new CaptureFragment());
+        fragmentTransaction.commitAllowingStateLoss();
     }
 
     // @Override

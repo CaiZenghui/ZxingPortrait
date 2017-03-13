@@ -16,9 +16,9 @@
 
 package com.google.zxing.client.android.camera;
 
+import com.google.zxing.client.android.ViewfinderView;
 import com.google.zxing.client.android.camera.open.CameraFacing;
 import com.google.zxing.client.android.camera.open.OpenCamera;
-import com.lantern.scan.ui.ViewfinderView;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -124,7 +124,6 @@ final class CameraConfigurationManager {
         screenResolution = theScreenResolution;
         Log.i(TAG, "Screen resolution in current orientation: " + screenResolution);
 
-
         Point screenResolutionForCamera = new Point();
         screenResolutionForCamera.x = screenResolution.x;
         screenResolutionForCamera.y = screenResolution.y;
@@ -133,7 +132,6 @@ final class CameraConfigurationManager {
             screenResolutionForCamera.x = screenResolution.y;
             screenResolutionForCamera.y = screenResolution.x;
         }
-
 
         cameraResolution = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolutionForCamera);
         Log.i(TAG, "Camera resolution: " + cameraResolution);

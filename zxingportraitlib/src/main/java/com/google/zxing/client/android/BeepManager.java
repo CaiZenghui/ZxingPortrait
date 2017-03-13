@@ -19,8 +19,7 @@ package com.google.zxing.client.android;
 import java.io.Closeable;
 import java.io.IOException;
 
-import com.lantern.scan.ui.CaptureActivity;
-import com.lantern.zxing.R;
+import com.cai.zxingportraitlib.R;
 
 import android.app.Activity;
 import android.content.Context;
@@ -30,9 +29,6 @@ import android.media.MediaPlayer;
 import android.os.Vibrator;
 import android.util.Log;
 
-/**
- * Manages beeps and vibrations for {@link CaptureActivity}.
- */
 public final class BeepManager implements MediaPlayer.OnErrorListener, Closeable {
 
     private static final String TAG = BeepManager.class.getSimpleName();

@@ -15,7 +15,9 @@ import com.google.zxing.client.android.InactivityTimer;
 import com.google.zxing.client.android.ViewfinderView;
 import com.google.zxing.client.android.camera.CameraManager;
 
+import android.Manifest;
 import android.app.Fragment;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -49,6 +51,8 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
 
     private static final String TAG = CaptureFragment.class.getSimpleName();
 
+    View root;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,8 +64,8 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
         inactivityTimer = new InactivityTimer(getActivity());
         beepManager = new BeepManager(getActivity());
         ambientLightManager = new AmbientLightManager(getActivity());
-
-        return inflater.inflate(R.layout.capture, null);
+        root = inflater.inflate(R.layout.capture, null);
+        return root;
     }
 
     @Override
@@ -163,6 +167,7 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
             return;
         }
         try {
+
             cameraManager.openDriver(surfaceHolder);
             // Creating the handler starts the preview, which can also throw a
             // RuntimeException.
